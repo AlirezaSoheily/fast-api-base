@@ -49,6 +49,19 @@ class Settings(BaseSettings):
 
     ALLOWED_AUTH_METHODS: list[AuthMethod] | str = [AuthMethod.JWT]
 
+    STRIPE_SECRET_KEY: str | None = None
+    STRIPE_WEBHOOK_SECRET: str | None = None
+    SMTP_HOST: str | None = None
+    SMTP_PORT: int = 587
+    SMTP_USERNAME: str | None = None
+    SMTP_PASSWORD: str | None = None
+    EMAIL_FROM: str = "noreply@example.com"
+    MEDIA_ROOT: str = "media"
+    S3_ENDPOINT_URL: str | None = None
+    S3_BUCKET_NAME: str | None = None
+    S3_ACCESS_KEY_ID: str | None = None
+    S3_SECRET_ACCESS_KEY: str | None = None
+
     @classmethod
     @field_validator("BACKEND_CORS_ORIGINS", mode="before")
     def assemble_cors_origins(cls, v: str | list[str]) -> list[str] | str:

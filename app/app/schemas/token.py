@@ -2,8 +2,9 @@ from pydantic import BaseModel
 
 
 class Token(BaseModel):
-    access_token: str | None
-    token_type: str
+    access_token: str | None = None
+    refresh_token: str | None = None
+    token_type: str = "bearer"
 
 
 class RefreshToken(BaseModel):
