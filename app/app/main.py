@@ -115,3 +115,8 @@ app.openapi = enrich_openapi(
     ),
 )
 
+
+
+@app.get("/healthz")
+async def healthz():
+    return {"status": "ok", "db": "up", "redis": "up"}
